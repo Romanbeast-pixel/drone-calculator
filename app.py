@@ -23,14 +23,15 @@ def quadcopter_calculator(prop_diameter_inch, drone_weight_g, thrust_per_motor_g
     total_thrust = thrust_per_motor_g * rotor_count
     twr = total_thrust / drone_weight_g if drone_weight_g > 0 else 0
 
+    # Format values as integers with comma separators
     return {
-        "Propeller Diameter (mm)": round(prop_size_mm),
-        "Arm Length (mm)": round(arm_length_mm),
-        "Diagonal Frame (mm)": round(diag_frame_size),
-        "Center Plate (mm)": round(center_plate),
-        "Total Diagonal (mm)": round(total_diag),
-        "Total Thrust (g)": round(total_thrust),
-        "Thrust-to-Weight Ratio": round(twr, 2)  # keep 2 decimals for ratio
+        "Propeller Diameter (mm)": f"{round(prop_size_mm):,}",
+        "Arm Length (mm)": f"{round(arm_length_mm):,}",
+        "Diagonal Frame (mm)": f"{round(diag_frame_size):,}",
+        "Center Plate (mm)": f"{round(center_plate):,}",
+        "Total Diagonal (mm)": f"{round(total_diag):,}",
+        "Total Thrust (g)": f"{round(total_thrust):,}",
+        "Thrust-to-Weight Ratio": f"{round(twr):,}"
     }
 
 # --- UI ---
